@@ -11,8 +11,8 @@ class Program
         Dictionary<string, int> wordsCounts = new Dictionary<string, int>();
         foreach (string s in text)
         {
-            if (wordsCounts.ContainsKey(s)) { ++wordsCounts[s]; }
-            else { wordsCounts[s] = 0; }
+            wordsCounts.TryAdd(s, 0);
+            ++wordsCounts[s];
         }
 
         var wordsCountsSorted = wordsCounts.OrderByDescending(s => s.Value).Take(10);
